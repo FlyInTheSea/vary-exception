@@ -14,4 +14,6 @@ class ExceptionCodeConstants
     const file_encode_error_code = 0;
 
     const file_encode_error_code_msg = '文件编码格式错误';
+
+    const positive_integer_needed_code = 1;
 }
