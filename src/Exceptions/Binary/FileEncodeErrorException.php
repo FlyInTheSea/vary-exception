@@ -6,18 +6,20 @@
  * Time: 2:00 PM
  */
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Binary;
 
 
-class FileEncodeErrorException extends \Exception
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
+
+class FileEncodeErrorException extends VaryException
 {
-    public function __construct(
-        $message = "文件编码格式错误",
-        $code = 400,
-        \Throwable $previous = null
-    ) {
-        $this->code = $code;
+    public function __construct()
+    {
+        $message = ExceptionCodeConstants::file_encode_error_code_msg;
 
-        parent::__construct($message, $code, $previous);
+        $code = ExceptionCodeConstants::file_encode_error_code;
+
+        parent::__construct($message, $code, null);
     }
 }
