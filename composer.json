@@ -1,0 +1,19 @@
+{
+    "name": "vary-exception/vary-exception",
+    "description": "all kinds of exceptions and exceptions dealer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "杨益民",
+            "email": "744541711@qq.com"
+        }
+    ],
+    "require": {
+        "ext-json": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "VaryException": "src/"
+        }
+    }
+}
