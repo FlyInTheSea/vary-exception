@@ -1,14 +1,16 @@
 <?php
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Structure;
 
 use Throwable;
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
 
 /**
  * Class ParseException
  * @package App\Modules\Exceptions
  */
-class ArrayDestructException extends \Exception
+class ArrayDestructException extends VaryException
 {
     public $parse_info;
 
@@ -22,17 +24,20 @@ class ArrayDestructException extends \Exception
         Throwable $exception_info//解析时抛出的异常
     )
     {
-        $this->code = 400;
-
-        $parse_info = json_encode($parse_info);
+        $this->illumination = $illumination;
 
         $this->parse_info = $parse_info;
 
         $this->exceptionInfo = $exception_info;
 
-        $this->message = sprintf("%s 数组析构失败", $illumination);
+        $code = ExceptionCodeConstants::array_destruct_code;
 
-        $this->illumination = $illumination;
+        $message = sprintf(
+            ExceptionCodeConstants::array_destruct_msg
+        );
+
+        parent::__construct($message, $code);
+
     }
 }
 

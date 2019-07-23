@@ -6,29 +6,20 @@
  * Time: 8:59 PM
  */
 
-namespace App\Modules\Exceptions\Process;
 
+namespace VaryException\Exceptions\Omit;
 
-use App\Models\ErrorLog;
-use Exception;
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
 
-class BlankException extends Exception
+class OmitException extends VaryException
 {
+    public function __construct()
+    {
+        $message = ExceptionCodeConstants::omit_msg;
 
-    public function __construct(
-        $message
-    ) {
+        $code = ExceptionCodeConstants::omit_code;
 
-//        $this->cause_exception = $throwable;
-//
-//        $log = ErrorLog::generate($throwable);
-//
-//        $message = sprintf(
-//            "%s阶段发生错误 错误id:%s", $this->message, $log->id
-//        );
-//
-//        $this->cause_exception_id = $log->id;
-
-        parent::__construct($message, 200, null);
+        parent::__construct($message, $code);
     }
 }

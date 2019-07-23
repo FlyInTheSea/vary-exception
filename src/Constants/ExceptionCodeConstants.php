@@ -44,5 +44,11 @@ class ExceptionCodeConstants
 
     const forbid_this_action_now_code = 10008;
 
+    const omit_msg = '未预见的错误';
 
+    const omit_code = 10444;
+
+    const array_destruct_msg = '数组进行析构错误';
+
+    const array_destruct_code = 10009;
 }
