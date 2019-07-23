@@ -72,4 +72,9 @@ class ExceptionCodeConstants
 
     const params_need_greater_than_zero_code = 10014;
 
+    const params_strict_valid_msg = '参数%s严格校验不通过';
+
+    const params_strict_valid_code = 10015;
+
+
 }

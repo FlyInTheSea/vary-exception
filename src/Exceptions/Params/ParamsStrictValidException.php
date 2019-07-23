@@ -1,24 +1,22 @@
 <?php
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Params;
 
-use App\Modules\Exceptions\Interfaces\WillLogExceptionInterface;
-use Exception;
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
 
-class ParamsStrictValidException extends Exception implements WillLogExceptionInterface
+class ParamsStrictValidException extends VaryException
 {
     public function __construct(
-        array $params = []
+        $param
     ) {
-        $this->code = 400;
+        $code = ExceptionCodeConstants::params_strict_valid_code;
 
-        $params        = implode(',', $params);
+        $message = sprintf(
+            ExceptionCodeConstants::params_strict_valid_msg, $param
+        );
 
-        if(empty($params)){
-            $params = '传递过来的';
-        }
-
-        $this->message = sprintf("%s中的参数　严格校验不通过", $params);
+        parent::__construct($message, $code);
     }
 }
 
