@@ -51,4 +51,16 @@ class ExceptionCodeConstants
     const array_destruct_msg = '数组进行析构错误';
 
     const array_destruct_code = 10009;
+
+    const service_closed_msg = '%s服务已关闭';
+
+    const service_closed_code = 10010;
+
+    const service_arrear_msg = '%s服务已欠费';
+
+    const service_arrear_code = 10011;
+
+    const request_fail_msg = '%s请求出错';
+
+    const request_fail_code = 10012;
 }

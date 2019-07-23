@@ -6,18 +6,18 @@
  * Time: 1:23 AM
  */
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Format;
 
+use VaryException\Exceptions\VaryException;
 
-class FieldMapException extends \Exception
+class FieldMapException extends VaryException
 {
-    public function __construct(
-        $message = "向　service 传递参数错误",
-        $code = 400,
-        \Throwable $previous = null
-    ) {
-        $this->code = $code;
+    public function __construct()
+    {
+        $message = '';
 
-        parent::__construct($message, $code, $previous);
+        $code = 1;
+
+        parent::__construct($message, $code);
     }
 }

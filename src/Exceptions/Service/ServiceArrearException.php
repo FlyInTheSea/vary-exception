@@ -1,22 +1,20 @@
 <?php
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Service;
 
-use App\Modules\Exceptions\Interfaces\WillLogExceptionInterface;
-use Exception;
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
 
-class ServiceArrearException extends Exception implements WillLogExceptionInterface
+class ServiceArrearException extends VaryException
 {
-    private $serviceName;
-
     public function __construct(
         $service_name
     ) {
-        $this->code = 400;
+        $code = ExceptionCodeConstants::service_arrear_code;
 
-        $this->serviceName = $service_name;
+        $message = sprintf(ExceptionCodeConstants::service_arrear_msg, $service_name);
 
-        $this->message = sprintf("%s服务欠费", $service_name);
+        parent::__construct($message, $code);
     }
 }
 

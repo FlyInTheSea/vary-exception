@@ -2,18 +2,21 @@
 
 namespace App\Modules\Exceptions;
 
-use App\Modules\Exceptions\Interfaces\WillLogExceptionInterface;
 
-class TimeFormatUnValidException extends \Exception implements WillLogExceptionInterface
+use VaryException\Exceptions\VaryException;
+
+class TimeFormatUnValidException extends VaryException
 {
     public function __construct(
         $field
     ) {
-        $this->code = 400;
+        $code = 400;
 
-        $this->message = sprintf(
+        $message = sprintf(
             '%s 时间格式转化发生错误', $field
         );
+
+        parent::__construct($message,$code);
     }
 }
 

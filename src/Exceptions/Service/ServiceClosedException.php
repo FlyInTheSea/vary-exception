@@ -1,18 +1,21 @@
 <?php
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Service;
 
-use App\Modules\Exceptions\Interfaces\WillLogExceptionInterface;
-use Throwable;
 
-class ServiceClosedException extends \Exception implements WillLogExceptionInterface
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
+
+class ServiceClosedException extends VaryException
 {
     public function __construct(
         $service_name
     ) {
-        $this->code = 400;
+        $code = ExceptionCodeConstants::service_closed_code;
 
-        $this->message = sprintf("%s服务已经关闭", $service_name);
+        $message = sprintf(ExceptionCodeConstants::service_closed_msg, $service_name);
+
+        parent::__construct($message, $code);
     }
 
 }

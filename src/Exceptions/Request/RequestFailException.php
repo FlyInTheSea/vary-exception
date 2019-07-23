@@ -6,26 +6,22 @@
  * Time: 1:49 PM
  */
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Request;
 
-use App\Modules\Exceptions\Interfaces\WillLogExceptionInterface;
-use Exception;
-use Throwable;
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
 
-class RequestFailException extends Exception implements WillLogExceptionInterface
+class RequestFailException extends VaryException
 {
-    private $errorMsg;
-
     public function __construct(
-        $error_msg,
         $request_illumination
     ) {
-        $this->code = 500;
+        $code = ExceptionCodeConstants::request_fail_code;
 
-        $this->errorMsg = $error_msg;
+        $format = ExceptionCodeConstants::request_fail_msg;
 
-        $this->message = sprintf('%s请求出错', $request_illumination);
+        $message = sprintf($format, $request_illumination);
 
-        parent::__construct($this->message, $this->code, null);
+        parent::__construct($message, $code);
     }
 }
