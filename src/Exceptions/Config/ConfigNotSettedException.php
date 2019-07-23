@@ -1,17 +1,21 @@
 <?php
 
-namespace App\Modules\Exceptions;
 
-class ConfigNotSettedException extends \Exception
+namespace VaryException\Exceptions\Config;
+
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
+
+class ConfigNotSettedException extends VaryException
 {
     public function __construct(
-        $message = ""
+        $key
     ) {
-        $this->code = 400;
+        $code = ExceptionCodeConstants::config_not_setted_code;
 
-        $this->message = sprintf('%s ' ,$message);
-        throw new ConfigNotSettedException('没有配置 页面 ' . $page_name . ' 的图像类型');
+        $message = sprintf(ExceptionCodeConstants::config_not_setted_msg, $key);
 
+        parent::__construct($message, $code, null);
     }
 }
 

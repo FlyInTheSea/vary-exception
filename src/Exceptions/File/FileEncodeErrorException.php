@@ -6,7 +6,7 @@
  * Time: 2:00 PM
  */
 
-namespace VaryException\Exceptions\Binary;
+namespace VaryException\Exceptions\File;
 
 
 use VaryException\Constants\ExceptionCodeConstants;

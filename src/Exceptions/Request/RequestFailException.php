@@ -8,32 +8,23 @@
 
 namespace App\Modules\Exceptions;
 
-use App\Models\ErrorLog;
 use App\Modules\Exceptions\Interfaces\WillLogExceptionInterface;
 use Exception;
 use Throwable;
 
 class RequestFailException extends Exception implements WillLogExceptionInterface
 {
+    private $errorMsg;
 
     public function __construct(
-        $request_illumination,
-        $url,
-        $params,
-        Throwable $throwable,
-        $method
+        $error_msg,
+        $request_illumination
     ) {
         $this->code = 500;
 
-        $log = ErrorLog::generate($throwable);
+        $this->errorMsg = $error_msg;
 
-        $this->message = sprintf('%s请求出错 地址是%s 参数是%s 请求方式 %s 原始错误信息 %s 错误日志id %s', $request_illumination,
-            $url,
-            json_encode($params),
-            $method,
-            $throwable->getMessage(),
-            $log->id
-        );
+        $this->message = sprintf('%s请求出错', $request_illumination);
 
         parent::__construct($this->message, $this->code, null);
     }

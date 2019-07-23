@@ -1,19 +1,20 @@
 <?php
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Config;
 
-class ConfigNotCorrectSettedException extends \Exception
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
+
+class ConfigNotCorrectSettedException extends VaryException
 {
     public function __construct(
-        $key,
-        $code = 400,
-        \Throwable $previous = null
+        $key
     ) {
-        $this->code = $code;
+        $code = ExceptionCodeConstants::config_not_correct_setted_code;
 
-        $message = sprintf('%s 没有被正确的配置', $key);
+        $message = sprintf(ExceptionCodeConstants::config_not_correct_setted_msg, $key);
 
-        parent::__construct($message, $code, $previous);
+        parent::__construct($message, $code, null);
     }
 }
 

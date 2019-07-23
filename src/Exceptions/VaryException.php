@@ -9,6 +9,7 @@
 namespace VaryException\Exceptions;
 
 use Exception;
+use Throwable;
 
 /**
  * 并非所有的异常都集成此 父类
@@ -17,4 +18,10 @@ use Exception;
  */
 class VaryException extends Exception
 {
+    public function __construct(string $message = "", int $code = 0, Throwable $previous = null)
+    {
+
+
+        parent::__construct($message, $code, $previous);
+    }
 }

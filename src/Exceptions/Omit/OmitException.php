@@ -14,9 +14,6 @@ use Exception;
 
 class BlankException extends Exception
 {
-    public $cause_exception;
-
-    public $cause_exception_id;
 
     public function __construct(
         $message
