@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Format;
 
 
+use VaryException\Constants\ExceptionCodeConstants;
 use VaryException\Exceptions\VaryException;
 
 class TimeFormatUnValidException extends VaryException
@@ -10,13 +11,14 @@ class TimeFormatUnValidException extends VaryException
     public function __construct(
         $field
     ) {
-        $code = 400;
+        $code =
+            ExceptionCodeConstants::time_format_unvalid_code;
 
         $message = sprintf(
-            '%s 时间格式转化发生错误', $field
+            ExceptionCodeConstants::time_format_unvalid_msg, $field
         );
 
-        parent::__construct($message,$code);
+        parent::__construct($message, $code);
     }
 }
 

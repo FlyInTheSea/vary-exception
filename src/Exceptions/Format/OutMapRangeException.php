@@ -6,19 +6,19 @@
  * Time: 11:02 AM
  */
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Format;
 
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
 
-use App\Models\OmissionErrorLog;
-
-class OutMapRangeException extends \Exception
+class OutMapRangeException extends VaryException
 {
-    public function __construct($msg)
+    public function __construct($val)
     {
-        $this->code = 400;
+        $code = ExceptionCodeConstants::out_map_range_code;
 
-        $this->message = sprintf('%s 不在范围 ', $msg);
+        $message = sprintf(ExceptionCodeConstants::out_map_range_msg, $val);
 
-        OmissionErrorLog::generate($this);
+        parent::__construct($message, $code);
     }
 }

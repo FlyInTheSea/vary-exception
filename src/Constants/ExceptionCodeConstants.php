@@ -76,5 +76,11 @@ class ExceptionCodeConstants
 
     const params_strict_valid_code = 10015;
 
+    const time_format_unvalid_msg = '%s时间格式无效';
 
+    const time_format_unvalid_code = 10016;
+
+    const out_map_range_msg = '%s 不在匹配范围';
+
+    const out_map_range_code = 10017;
 }
