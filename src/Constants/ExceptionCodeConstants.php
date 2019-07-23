@@ -63,4 +63,13 @@ class ExceptionCodeConstants
     const request_fail_msg = '%s请求出错';
 
     const request_fail_code = 10012;
+
+    const user_not_assigned_role_msg = '用户没有分配用户角色';
+
+    const user_not_assigned_role_code = 10013;
+
+    const params_need_greater_than_zero_msg = '传递的参数应该大于0 实际传递的是%s';
+
+    const params_need_greater_than_zero_code = 10014;
+
 }

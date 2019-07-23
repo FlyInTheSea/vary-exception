@@ -1,21 +1,26 @@
 <?php
 
-namespace App\Modules\Exceptions;
+namespace VaryException\Exceptions\Params;
+
+use VaryException\Constants\ExceptionCodeConstants;
+use VaryException\Exceptions\VaryException;
 
 /**
  * Class ParseException
  * @package App\Modules\Exceptions
  */
-class ParamsNeedGreaterThanZeroException extends \Exception
+class ParamsNeedGreaterThanZeroException extends VaryException
 {
     public $parse_info;
 
     public function __construct(
         $receive_num
     ) {
-        $this->code = 400;
+        $code = ExceptionCodeConstants::params_need_greater_than_zero_code;
 
-        $this->message = sprintf("传递的参数应该大于0 实际传递的是%s", $receive_num);
+        $message = sprintf(ExceptionCodeConstants::params_need_greater_than_zero_msg, $receive_num);
+
+        parent::__construct($message, $code);
     }
 }
 
