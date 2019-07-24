@@ -1,11 +1,11 @@
 <?php
 
-namespace VaryException\Exceptions\Params;
+namespace VaryException\Exceptions\Argument;
 
 use VaryException\Constants\ExceptionCodeConstants;
 use VaryException\Exceptions\VaryException;
 
-class ParamsStrictValidException extends VaryException
+class ArgumentInValidException extends VaryException
 {
     public function __construct(
         $param

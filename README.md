@@ -15,3 +15,7 @@
 
 
 
+思考 如果都是  InvalidArgument 在不同的业务场景中 
+
+比如redis 中 参数不合法 和 发请求的时候参数不合法 是否应该是两个 InvalidArgument
+

@@ -1,6 +1,6 @@
 <?php
 
-namespace VaryException\Exceptions\Params;
+namespace VaryException\Exceptions\Argument;
 
 use VaryException\Constants\ExceptionCodeConstants;
 use VaryException\Exceptions\VaryException;
@@ -9,7 +9,7 @@ use VaryException\Exceptions\VaryException;
  * Class ParseException
  * @package App\Modules\Exceptions
  */
-class ParamsNeedGreaterThanZeroException extends VaryException
+class ArgumentNeedGreaterThanZeroException extends VaryException
 {
     public $parse_info;
 
