@@ -20,6 +20,6 @@ class RecordException
 
     public static function bare_and_throw(Throwable $throwable)
     {
-        
+
     }
 }
